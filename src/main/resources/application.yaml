@@ -1,0 +1,42 @@
+# Management
+server:
+  port: 8080
+endpoints:
+  hawtio:
+    enabled: true
+  jolokia:
+    enabled: true
+  enabled: true
+  health:
+    enabled: false
+
+
+hawtio:
+  authenticationEnabled: false
+info:
+  app:
+    name:camel-springboot-route
+    description:This is a microservice for camel springboot route testing
+          
+## Application Name
+camel:
+  springboot:
+    name: camel-springboot-route
+  health:
+    enabled: true
+    contextEnabled: true
+    routesEnabled: true
+    registryEnabled: true
+    config[*].parent: routes
+    config[*].enabled: true
+
+spring:
+    debug: true
+    main:
+      web-application-type: none
+
+# what to say
+greeting: Hello World
+
+# how often to trigger the timer
+timer.period: 2000
