@@ -26,10 +26,7 @@ public class ProxyRoute extends RouteBuilder {
     }
 
     public static void uppercase(final Exchange exchange) {
-        final Message message = exchange.getIn();
-        final String body = message.getBody(String.class);
-        System.out.println(body!=null?body:" corpo nulo ");
-        //message.setBody(body!=null?body.toUpperCase(Locale.US):"");
+         System.out.println(">>>>> PROCESSOR CHAMADO");
     }
 
 }
