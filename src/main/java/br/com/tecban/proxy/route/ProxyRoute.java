@@ -17,15 +17,18 @@ public class ProxyRoute extends RouteBuilder {
     public void configure() throws Exception {
         from("netty4-http:proxy://0.0.0.0:8080")
             .process(ProxyRoute::uppercase)
+	    .to("log:DEBUG?showBody=true&showHeaders=true")
             .toD("netty-http:"
                 + "${headers." + Exchange.HTTP_SCHEME + "}://"
                 + "${headers." + Exchange.HTTP_HOST + "}:"
                 + "${headers." + Exchange.HTTP_PORT + "}"
                 + "${headers." + Exchange.HTTP_PATH + "}")
+	     .to("log:DEBUG?showBody=true&showHeaders=true")
             .process(ProxyRoute::uppercase);
     }
 
     public static void uppercase(final Exchange exchange) {
+	 
          System.out.println(">>>>> PROCESSOR CHAMADO");
     }
 
