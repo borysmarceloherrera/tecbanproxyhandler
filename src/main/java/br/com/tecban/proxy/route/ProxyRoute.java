@@ -18,7 +18,7 @@ public class ProxyRoute extends RouteBuilder {
         from("netty4-http:proxy://0.0.0.0:8080")
             .process(ProxyRoute::uppercase)
 	    .to("log:DEBUG?showBody=true&showHeaders=true")
-		toD("netty-http:"
+		.toD("netty-http:"
                 + "${headers." + Exchange.HTTP_SCHEME + "}://"
                 + "${headers." + Exchange.HTTP_HOST + "}:"
                 + "${headers." + Exchange.HTTP_PORT + "}")
