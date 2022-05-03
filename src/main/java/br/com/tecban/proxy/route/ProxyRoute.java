@@ -29,7 +29,7 @@ public class ProxyRoute extends RouteBuilder {
         final Message message = exchange.getIn();
         final String body = message.getBody(String.class);
         System.out.println(body!=null?body:" corpo nulo ");
-        message.setBody(body!=null?body.toUpperCase(Locale.US):"");
+        //message.setBody(body!=null?body.toUpperCase(Locale.US):"");
     }
 
 }
