@@ -19,10 +19,7 @@ public class ProxyRoute extends RouteBuilder {
             .process(ProxyRoute::uppercase)
 	    .to("log:DEBUG?showBody=true&showHeaders=true")
             .toD("netty-http:"
-                + "${headers." + Exchange.HTTP_SCHEME + "}://"
-                + "${headers." + Exchange.HTTP_HOST + "}:"
-                + "${headers." + Exchange.HTTP_PORT + "}"
-                + "${headers." + Exchange.HTTP_PATH + "}")
+                + "${headers." + Exchange.HTTP_URL + "}")
 	     .to("log:DEBUG?showBody=true&showHeaders=true")
             .process(ProxyRoute::uppercase);
     }
